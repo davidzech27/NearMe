@@ -43,14 +43,15 @@ export default function CreatePostForm({ onPosts }: Props) {
 				className={cn(
 					"group relative flex h-20 w-full items-center justify-center overflow-hidden rounded-lg border-[1.5px] border-[#596375] bg-[#03080C] text-lg transition duration-[400ms] hover:border-[#596375]/0",
 					disabled && "pointer-events-none opacity-50",
+					loading && "pointer-events-none",
 				)}
 			>
-				<div className="relative z-50 align-middle text-xl font-semibold text-white transition-all duration-[400ms] group-hover:font-extralight">
+				<div className="relative z-50 align-middle text-xl font-semibold text-white transition-all duration-[400ms] group-focus-within:font-extralight group-hover:font-extralight group-active:font-extralight">
 					{!loading ? "Post" : <LoadingSpinner className="h-9 w-9 fill-white" />}
 				</div>
 
 				<div
-					className="absolute left-0 top-0 h-full w-full origin-bottom-left rotate-[-98deg] group-hover:rotate-0"
+					className="absolute left-0 top-0 h-full w-full origin-bottom-left rotate-[-98deg] group-hover:rotate-0 group-focus-visible:rotate-0 group-active:rotate-0"
 					style={{
 						transitionProperty: "transform",
 						transitionTimingFunction: "cubic-bezier(0.8, 0.1, 0, 1)",
